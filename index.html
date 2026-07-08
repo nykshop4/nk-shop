@@ -556,6 +556,9 @@
         .back-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
         .back-top:hover{border-color:var(--dorado);color:var(--dorado);transform:translateY(-3px);box-shadow:0 4px 16px rgba(201,168,76,.2)}
         .back-top.show:hover{transform:translateY(-3px)}
+        .size-stock-item[data-set="numeros"]{display:none}
+        #af-sizes.show-numeros .size-stock-item[data-set="numeros"]{display:flex}
+        #af-sizes.show-numeros .size-stock-item[data-set="letras"]{display:none}
 
         /* Loading screen */
         .loading-screen{position:fixed;inset:0;z-index:9999;background:var(--hueso);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease;pointer-events:all}
@@ -1072,7 +1075,7 @@
                         <label>Tipo</label>
                         <select id="af-type">
                             <option value="ropa_mujer">Ropa de Mujer</option>
-                            <option value="zapatos">Zapatos</option>
+                            <option value="zapatos">Calzados</option>
                             <option value="accesorios">Accesorios</option>
                             <option value="otro">Otro</option>
                         </select>
@@ -1103,38 +1106,63 @@
                 <div class="admin-form-group">
                     <label>Tallas disponibles</label>
                     <div class="size-stock-grid" id="af-sizes">
-                        <div class="size-stock-item" data-size="XS">
+                        <div class="size-stock-item" data-size="XS" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="XS"> XS</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
-                        <div class="size-stock-item" data-size="S">
+                        <div class="size-stock-item" data-size="S" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="S"> S</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
-                        <div class="size-stock-item" data-size="M">
+                        <div class="size-stock-item" data-size="M" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="M"> M</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
-                        <div class="size-stock-item" data-size="L">
+                        <div class="size-stock-item" data-size="L" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="L"> L</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
-                        <div class="size-stock-item" data-size="XL">
+                        <div class="size-stock-item" data-size="XL" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="XL"> XL</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
-                        <div class="size-stock-item" data-size="XXL">
+                        <div class="size-stock-item" data-size="XXL" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="XXL"> XXL</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
-                        <div class="size-stock-item" data-size="Única">
+                        <div class="size-stock-item" data-size="Única" data-set="letras">
                             <label><input type="checkbox" class="size-check" value="Única"> Única</label>
+                            <input type="number" class="size-stock" min="0" value="0" disabled>
+                            <span class="stock-label">Stock</span>
+                        </div>
+                        <div class="size-stock-item" data-size="36" data-set="numeros">
+                            <label><input type="checkbox" class="size-check" value="36"> 36</label>
+                            <input type="number" class="size-stock" min="0" value="0" disabled>
+                            <span class="stock-label">Stock</span>
+                        </div>
+                        <div class="size-stock-item" data-size="37" data-set="numeros">
+                            <label><input type="checkbox" class="size-check" value="37"> 37</label>
+                            <input type="number" class="size-stock" min="0" value="0" disabled>
+                            <span class="stock-label">Stock</span>
+                        </div>
+                        <div class="size-stock-item" data-size="38" data-set="numeros">
+                            <label><input type="checkbox" class="size-check" value="38"> 38</label>
+                            <input type="number" class="size-stock" min="0" value="0" disabled>
+                            <span class="stock-label">Stock</span>
+                        </div>
+                        <div class="size-stock-item" data-size="39" data-set="numeros">
+                            <label><input type="checkbox" class="size-check" value="39"> 39</label>
+                            <input type="number" class="size-stock" min="0" value="0" disabled>
+                            <span class="stock-label">Stock</span>
+                        </div>
+                        <div class="size-stock-item" data-size="40" data-set="numeros">
+                            <label><input type="checkbox" class="size-check" value="40"> 40</label>
                             <input type="number" class="size-stock" min="0" value="0" disabled>
                             <span class="stock-label">Stock</span>
                         </div>
@@ -1638,7 +1666,7 @@
 
         var PRODUCT_TYPES = {
             'ropa_mujer': 'Ropa de Mujer',
-            'zapatos': 'Zapatos',
+            'zapatos': 'Calzados',
             'accesorios': 'Accesorios',
             'otro': 'Otro'
         };
@@ -2401,6 +2429,7 @@
             mainImg.classList.add('img-loading');
             mainImg.classList.remove('img-loaded', 'img-error');
 
+            var sizeLabel = detailProduct.type === 'zapatos' ? 'Tallas disponibles' : 'Tallas disponibles';
             var sizesHtml = '';
             var sizeKeys = detailProduct.sizes ? Object.keys(detailProduct.sizes) : ['S','M','L','XL'];
             for (var s = 0; s < sizeKeys.length; s++) {
@@ -2735,6 +2764,12 @@
             document.getElementById('af-tag').value = product ? (product.tag||'') : '';
             document.getElementById('af-status').value = product ? (product.status||'activo') : 'activo';
 
+            // Apply size set before filling sizes
+            var sizesWrap = document.getElementById('af-sizes');
+            var prodType = product ? (product.type || 'ropa_mujer') : 'ropa_mujer';
+            if (prodType === 'zapatos') { sizesWrap.classList.add('show-numeros'); }
+            else { sizesWrap.classList.remove('show-numeros'); }
+
             // Sizes
             var savedSizes = product && product.sizes ? product.sizes : {};
             document.querySelectorAll('#af-sizes .size-stock-item').forEach(function(item) {
@@ -2802,6 +2837,16 @@
             afDirty = false;
             document.getElementById('adminFormModal').classList.add('open');
         }
+
+        // When type changes, toggle size sets (letras vs numeros)
+        document.getElementById('af-type').addEventListener('change', function() {
+            var sizesWrap = document.getElementById('af-sizes');
+            if (this.value === 'zapatos') {
+                sizesWrap.classList.add('show-numeros');
+            } else {
+                sizesWrap.classList.remove('show-numeros');
+            }
+        });
 
         // Track form dirty state
         document.getElementById('adminForm').addEventListener('change', markAfDirty);
