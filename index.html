@@ -1072,7 +1072,6 @@
                         <label>Tipo</label>
                         <select id="af-type">
                             <option value="ropa_mujer">Ropa de Mujer</option>
-                            <option value="ropa_hombre">Ropa de Hombre</option>
                             <option value="zapatos">Zapatos</option>
                             <option value="accesorios">Accesorios</option>
                             <option value="otro">Otro</option>
@@ -1639,7 +1638,6 @@
 
         var PRODUCT_TYPES = {
             'ropa_mujer': 'Ropa de Mujer',
-            'ropa_hombre': 'Ropa de Hombre',
             'zapatos': 'Zapatos',
             'accesorios': 'Accesorios',
             'otro': 'Otro'
@@ -1648,7 +1646,7 @@
         var DEFAULT_PRODUCTS = [
             { id:1, name:'Blusa Blanca Hueso', category:'Blusas', type:'ropa_mujer', price:45000, image:'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&h=700&fit=crop', images:['https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&h=700&fit=crop','https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&h=700&fit=crop','https://images.unsplash.com/photo-1571942879622-d7d11a5d7b3f?w=600&h=700&fit=crop'], tag:'Nuevo', desc:'Blusa confeccionada en algodón premium con acabados dorados. Tela suave y fresca ideal para cualquier ocasión.', status:'activo', sizes:{S:5,M:3,L:2,XL:1} },
             { id:2, name:'Vestido Dorado Noche', category:'Vestidos', type:'ropa_mujer', price:89000, image:'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&h=700&fit=crop', images:['https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&h=700&fit=crop','https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=700&fit=crop'], tag:'', desc:'Elegante vestido dorado perfecto para ocasiones especiales. Corte moderno con detalles brillantes.', status:'activo', sizes:{S:3,M:4,L:2} },
-            { id:3, name:'Chamarra Elegante', category:'Chamarras', type:'ropa_hombre', price:99000, oldPrice:129000, image:'https://images.unsplash.com/photo-1542060748-10c28b62716f?w=600&h=700&fit=crop', images:['https://images.unsplash.com/photo-1542060748-10c28b62716f?w=600&h=700&fit=crop','https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=700&fit=crop'], tag:'Oferta', desc:'Chamarra de vestir con corte clásico y moderno. Material de alta durabilidad. Ideal para looks casual-elegantes.', status:'activo', sizes:{M:4,L:3,XL:2} },
+
             { id:4, name:'Conjunto Premium', category:'Conjuntos', type:'ropa_mujer', price:115000, image:'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=600&h=700&fit=crop', images:['https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=600&h=700&fit=crop','https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&h=700&fit=crop'], tag:'', desc:'Conjunto de dos piezas en tono hueso. Fresco, cómodo y muy versátil. Perfecto para el día a día.', status:'activo', sizes:{S:3,M:5,L:4,XL:2} },
             { id:5, name:'Zapatos Tacón Dorado', category:'Zapatos', type:'zapatos', price:95000, image:'https://images.unsplash.com/photo-1543163521-2bf539c55ddb?w=600&h=700&fit=crop', images:['https://images.unsplash.com/photo-1543163521-2bf539c55ddb?w=600&h=700&fit=crop','https://images.unsplash.com/photo-1590673846740-3f1a4a3e44d4?w=600&h=700&fit=crop'], tag:'Nuevo', desc:'Tacones elegantes color dorado. Perfectos para ocasiones especiales.', status:'activo', sizes:{'36':5,'37':4,'38':3,'39':2} },
             { id:6, name:'Bolso de Mano', category:'Bolsos', type:'accesorios', price:78000, image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=700&fit=crop', images:['https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=700&fit=crop'], tag:'', desc:'Bolso de mano elegante en tono hueso con detalles dorados. Ideal para complementar cualquier look.', status:'activo', sizes:{'Única':5} }
